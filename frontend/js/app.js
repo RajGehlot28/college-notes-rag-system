@@ -55,7 +55,7 @@ async function sendMessage() {
   showLoading();
 
   try {
-    const response = await fetch("https://college-notes-rag-system.onrender.com/", {
+    const response = await fetch("https://college-notes-rag-system.onrender.com/ask", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
