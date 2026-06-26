@@ -15,6 +15,6 @@ class LLM:
             max_tokens = 1024
         )
 
-    def invoke(self, prompt):
-        response = self.llm.invoke(prompt)
+    async def invoke(self, prompt):
+        response = await self.llm.invoke(prompt)
         return response.content
