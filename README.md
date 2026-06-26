@@ -44,7 +44,7 @@ Retrieve Relevant Notes
 Build Context
       │
       ▼
-Groq LLM
+OpenAI LLM
       │
       ▼
 Generate Final Answer
