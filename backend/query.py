@@ -16,17 +16,12 @@ async def answer_query(query, vector_store, embedding_manager, llm_manager):
             context += result.payload["text"] + "\n\n"
 
     prompt = f"""
-            SYSTEM:
+            Answer the question as per the retrieved context only.
+            If context is empty then return answer as - "I cannot find the answer to this question in the provided documents."
 
-            You are a strict, zero-hallucination Context Verification Assistant.
-            Your purpose is to answer the user's question using ONLY the provided text block under "Retrieved Context". You are completely forbidden from using any external knowledge, internal training data, or assumptions.
-
-            CRITICAL CONSTRAINTS:
-            - Ground every single sentence of your answer in the provided context.
-            - If the context does not contain direct, explicit information to answer the question, or if the context is "NO_CONTEXT_FOUND", you must immediately stop and output exactly this phrase: "I cannot find the answer to this question in the provided documents."
-            - Never attempt to supplement, guess, or use outside general knowledge to answer a question.
-            - Return ONLY the final clear answer.
-            - Never reveal reasoning, chain of thought, or mention words like "retrieved notes", "embeddings", "context", "database", or "chunks".
+            Constraints :-
+            - No extra information just give answer
+            - Briefly answer question as per the retrieved context only
 
             Question:
             {query}
